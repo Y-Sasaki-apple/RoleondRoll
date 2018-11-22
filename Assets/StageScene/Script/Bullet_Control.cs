@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Bullet_Control : MonoBehaviour {
     private Rigidbody2D rb2d;
-    // Use this for initialization
+    public Vector3 velocity;
+
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
+        rb2d.velocity = velocity;
     }
 	
-	// Update is called once per frame
 	void Update () {
-		
-	}
 
+    }
+    private void OnTriggerStay2D(Collider2D collider) {
+        if (collider.tag == "Ground")
+            Destroy(gameObject);
+    }
     private void FixedUpdate() {
-        var vel = rb2d.velocity;
-        vel.x = 5.0f;
-        rb2d.velocity = vel;
     }
 }

@@ -62,9 +62,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\StageScene\Script\Alice_Control.cs" />
+    <Compile Include="Assets\StageScene\Script\Bomb_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Bullet_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Camera_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Enemy1_Control.cs" />
+    <Compile Include="Assets\StageScene\Script\Event_Trigger.cs" />
+    <Compile Include="Assets\StageScene\Script\Hole.cs" />
+    <Compile Include="Assets\StageScene\Script\MessageWindow.cs" />
+    <Compile Include="Assets\StageScene\Script\Mover_Control.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Yuito/Documents/Program/DateAppGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
