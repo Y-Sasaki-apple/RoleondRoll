@@ -62,12 +62,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\StageScene\Script\Alice_Control.cs" />
+    <Compile Include="Assets\StageScene\Script\Alice_Move_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Bomb_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Bullet_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Camera_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Enemy1_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Event_Trigger.cs" />
+    <Compile Include="Assets\StageScene\Script\GameEventController.cs" />
     <Compile Include="Assets\StageScene\Script\Hole.cs" />
+    <Compile Include="Assets\StageScene\Script\IGameEventHandler.cs" />
+    <Compile Include="Assets\StageScene\Script\ITimeStopHandler.cs" />
+    <Compile Include="Assets\StageScene\Script\MagicThings_Control.cs" />
     <Compile Include="Assets\StageScene\Script\MessageWindow.cs" />
     <Compile Include="Assets\StageScene\Script\Mover_Control.cs" />
     <Reference Include="UnityEditor.StandardEvents">

@@ -14,6 +14,10 @@ public class Bullet_Control : MonoBehaviour {
 	void Update () {
 
     }
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.tag == "Gimic")
+            Destroy(gameObject);
+    }
     private void OnTriggerStay2D(Collider2D collider) {
         if (collider.tag == "Ground")
             Destroy(gameObject);

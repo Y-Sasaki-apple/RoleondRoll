@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114092074766782278}
   - component: {fileID: 70018459476609300}
   - component: {fileID: 61451408122003236}
+  - component: {fileID: 114374607195661156}
   m_Layer: 8
   m_Name: Alice
   m_TagString: Alice
@@ -38,7 +39,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642820966645328}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -134,9 +135,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4774b5e95af2736419d502fbece0300f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 1859164147320696, guid: dde8358a410d3244f9b31d3ab0cf7889, type: 2}
+--- !u!114 &114374607195661156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642820966645328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2d810ae3264bd4aa90933550bf9e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   speed_walk: 3
   front_way: 1
-  bullet: {fileID: 1859164147320696, guid: dde8358a410d3244f9b31d3ab0cf7889, type: 2}
 --- !u!212 &212299544058315970
 SpriteRenderer:
   m_ObjectHideFlags: 1

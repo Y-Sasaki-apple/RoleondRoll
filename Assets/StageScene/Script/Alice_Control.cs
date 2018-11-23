@@ -3,37 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Alice_Control : Mover_Control {
-    private float input_lr = 0.0f;
-
-    public const float speed_jump = 10.0f;
-
-    private bool pushed_jump = false;
+public class Alice_Control : MonoBehaviour /*, IGameEventHandler */{
     private bool pushed_shot = false;
-
-    private bool do_jump = false;
-
-    private bool is_grounded = false;
-    private bool f_grounded = false;
-
+    private bool pushed_timestop = false;
+    private Rigidbody2D rb2d;
+    private Animator animator;
     private bool enable_input = true;
+    private Alice_Move_Control move_Control;
+    //public GameEventController game;
     public GameObject bullet;//Controlに変更して汎用化？
+
     void Start() {
-        setup();
+        animator = GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
+        move_Control = GetComponent<Alice_Move_Control>();
+        //game = GameObject.FindGameObjectWithTag("GameActors").GetComponent<GameEventController>();
     }
 
     void Update() {
         input();
-        animator.SetBool("isRunning", input_lr != 0);
-        animator.SetBool("isGrounded", is_grounded);
-        animator.SetFloat("YSpeed", rb2d.velocity.y);
-        if (pushed_jump && is_grounded) {
-            animator.SetTrigger("Leap");
-            do_jump = true;
-        }
         if (pushed_shot) animator.SetTrigger("Shoot");
         shot_process();
-        face_front();
+        //timestop_process();
     }
 
     public void Damaged() {
@@ -48,50 +39,30 @@ public class Alice_Control : Mover_Control {
             //}
         }
     }
-    private void OnTriggerStay2D(Collider2D collider) {
-        if (collider.tag == "Ground")
-            f_grounded = true;
-    }
-
-    private void FixedUpdate() {
-        var vel = rb2d.velocity;
-        walk_to_lr(input_lr);
-        jump_process();
-
-        is_grounded = f_grounded;
-        f_grounded = false;
-    }
-
-    private void input() {
-        if (enable_input) {
-            input_lr = Input.GetAxis("Horizontal");
-            if (input_lr > 0) {
-                front_way = 1;
-            } else if (input_lr < 0) {
-                front_way = -1;
-            }
-            pushed_jump = Input.GetButtonDown("Fire1");
-            pushed_shot = Input.GetButtonDown("Fire2");
-        } else {
-            input_lr = 0;
-            pushed_jump = false;
-            pushed_shot = false;
-        }
-    }
 
     private void shot_process() {
         if (pushed_shot) {
             var b = Instantiate(bullet, rb2d.transform.position + new Vector3(0, 0.5f), rb2d.transform.rotation);
-            b.GetComponent<Bullet_Control>().velocity = new Vector3(front_way * 5, 0);
+            b.GetComponent<Bullet_Control>().velocity = new Vector3(move_Control.front_way * 5, 0);
+            b.transform.parent = transform.parent;
         }
     }
 
-    private void jump_process() {
-        if (do_jump) {
-            do_jump = false;
-            rb2d.AddForce(new Vector2(0, speed_jump) * rb2d.mass, ForceMode2D.Impulse);
+    private void input() {
+        if (enable_input) {
+            pushed_shot = Input.GetButtonDown("Fire2");
+            pushed_timestop = Input.GetButtonDown("Fire3");
+        } else {
+            pushed_shot = false;
+            pushed_timestop = false;
         }
     }
+
+    //private void timestop_process() {
+    //    if (pushed_timestop) {
+    //        //game.timestop();
+    //    }
+    //}
 
     IEnumerator invincible_process() {
         gameObject.layer = LayerMask.NameToLayer("Player_Invincible");
@@ -99,10 +70,14 @@ public class Alice_Control : Mover_Control {
         gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
-    public void startEvent() {
-        enable_input = false;
-    }
-    public void finishEvent() {
-        enable_input = true;
-    }
+    //public new void eventStart() {
+    //    base.eventStart();
+    //    enable_input = false;
+    //}
+
+    //public new void eventEnd() {
+    //    base.eventEnd();
+    //    enable_input = true;
+    //}
+
 }

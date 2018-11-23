@@ -5,15 +5,15 @@ using UnityEngine.EventSystems;
 
 public class Event_Trigger : MonoBehaviour {
     public MessageWindow mw;
-    private bool event_started = false;
     public Alice_Control alice;
+    //public GameEventController game;
     void Start() {
         mw = GameObject.FindGameObjectWithTag("MessageWindow").GetComponent<MessageWindow>();
+        //game = GameObject.FindGameObjectWithTag("GameActors").GetComponent<GameEventController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.tag == "Alice") {
-            event_started = true;
             alice = collider.gameObject.GetComponent<Alice_Control>();
             StartCoroutine(gameEventProcess());
         }
@@ -34,14 +34,16 @@ public class Event_Trigger : MonoBehaviour {
 
     IEnumerable<int> gameEvent() {
         mw.Show();
-        alice.startEvent();
+        //alice.startEvent();
+        //game.startEvent();
         mw.startShowText("Do you have any questions?\nなにか質問とかある？");
         yield return 0;
         mw.startShowText("テストメッセージですけど。何か？");
         yield return 1;
         mw.Hide();
         Destroy(gameObject);
-        alice.finishEvent();
+        //alice.finishEvent();
+        //game.endEvent();
         yield return 2;
     }
 }
