@@ -12,10 +12,6 @@ public class Enemy1_Control : Mover_Control/*,ITimeStopHandler*/ {
         speed_walk = 1.0f;
     }
 
-    void Update() {
-        face_front();
-    }
-
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.tag == "Bullet") {
             Instantiate(bomb, rb2d.transform.position, rb2d.transform.rotation);

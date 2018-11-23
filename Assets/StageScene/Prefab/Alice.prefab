@@ -135,6 +135,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4774b5e95af2736419d502fbece0300f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pushed_shot:
+    value: 0
+  pushed_timestop:
+    value: 0
+  is_inbincible:
+    value: 0
+  game: {fileID: 0}
   bullet: {fileID: 1859164147320696, guid: dde8358a410d3244f9b31d3ab0cf7889, type: 2}
 --- !u!114 &114374607195661156
 MonoBehaviour:
@@ -149,6 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed_walk: 3
   front_way: 1
+  input_lr:
+    value: 0
+  speed_jump: 10
 --- !u!212 &212299544058315970
 SpriteRenderer:
   m_ObjectHideFlags: 1
