@@ -70,8 +70,6 @@
     <Compile Include="Assets\StageScene\Script\Event_Trigger.cs" />
     <Compile Include="Assets\StageScene\Script\GameEventController.cs" />
     <Compile Include="Assets\StageScene\Script\Hole.cs" />
-    <Compile Include="Assets\StageScene\Script\IGameEventHandler.cs" />
-    <Compile Include="Assets\StageScene\Script\ITimeStopHandler.cs" />
     <Compile Include="Assets\StageScene\Script\MagicThings_Control.cs" />
     <Compile Include="Assets\StageScene\Script\MessageWindow.cs" />
     <Compile Include="Assets\StageScene\Script\Mover_Control.cs" />

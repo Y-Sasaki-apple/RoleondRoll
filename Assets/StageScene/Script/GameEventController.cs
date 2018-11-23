@@ -1,9 +1,26 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using UnityEngine.EventSystems;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UniRx;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 //public class GameEventController : MonoBehaviour {
+//    private Subject<bool> timeStop = new Subject<bool>();
+//    public IObservable<bool> TimeStopEvent {
+//        get {
+//            return timeStop;
+//        }
+//    }
+//    public void try_timeStop() {
+
+//    }
+
+//    IEnumerator timeStopping() {
+//        timeStop.OnNext(true);
+//        yield return new WaitForSeconds(5.0f);
+//        timeStop.OnNext(false);
+//    }
+//}
 //    private bool timestopping = false;
 //    private bool eventing = false;
 

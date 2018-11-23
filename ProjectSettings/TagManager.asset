@@ -10,7 +10,7 @@ TagManager:
   - Enemy
   - MessageWindow
   - Gimic
-  - GameActors
+  - GameEvent
   layers:
   - Default
   - TransparentFX

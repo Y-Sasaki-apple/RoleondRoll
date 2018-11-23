@@ -17,7 +17,8 @@ public class Alice_Control : MonoBehaviour /*, IGameEventHandler */{
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         move_Control = GetComponent<Alice_Move_Control>();
-        //game = GameObject.FindGameObjectWithTag("GameActors").GetComponent<GameEventController>();
+        //game = GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEventController>();
+        //game.TimeStopEvent.Subscribe(isstop => { Debug.Log("TTT"); return null; });
     }
 
     void Update() {
@@ -58,11 +59,11 @@ public class Alice_Control : MonoBehaviour /*, IGameEventHandler */{
         }
     }
 
-    //private void timestop_process() {
-    //    if (pushed_timestop) {
-    //        //game.timestop();
-    //    }
-    //}
+    private void timestop_process() {
+        if (pushed_timestop) {
+            //game.try_timeStop();
+        }
+    }
 
     IEnumerator invincible_process() {
         gameObject.layer = LayerMask.NameToLayer("Player_Invincible");
