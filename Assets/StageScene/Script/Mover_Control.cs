@@ -12,7 +12,7 @@ public class Mover_Control : MonoBehaviour/*, IGameEventHandler */{
 
     public int front_way = 1;
 
-    private Vector2 velocity_before_stop;
+    //private Vector2 velocity_before_stop;
     protected void setup() {
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();

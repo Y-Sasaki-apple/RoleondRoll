@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Hole : MonoBehaviour {
     public Transform returnPoint;
 	// Use this for initialization

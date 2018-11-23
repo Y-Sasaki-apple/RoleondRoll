@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy1_Control : Mover_Control/*,ITimeStopHandler*/ {
     public GameObject bomb;
-    private Vector2 velocity_before_stop;
+    //private Vector2 velocity_before_stop;
 
     void Start() {
         setup();
