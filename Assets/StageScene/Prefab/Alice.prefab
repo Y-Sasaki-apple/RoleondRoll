@@ -58,7 +58,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.5
+  m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -135,9 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4774b5e95af2736419d502fbece0300f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushed_shot:
-    value: 0
-  pushed_timestop:
+  freezed:
     value: 0
   is_inbincible:
     value: 0
@@ -154,11 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2d810ae3264bd4aa90933550bf9e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezed:
+    value: 0
   speed_walk: 3
   front_way: 1
   input_lr:
     value: 0
-  speed_jump: 10
+  speed_jump: 12
+  game: {fileID: 0}
 --- !u!212 &212299544058315970
 SpriteRenderer:
   m_ObjectHideFlags: 1

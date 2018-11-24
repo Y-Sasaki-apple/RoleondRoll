@@ -57,7 +57,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.5
+  m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -134,9 +134,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb950e22de65c2d4ca3dff8e97735c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezed:
+    value: 0
   speed_walk: 3
   front_way: 1
   bomb: {fileID: 1435782284969674, guid: 8b463bf360a55b14e8dada326ccf4c78, type: 2}
+  game: {fileID: 0}
 --- !u!212 &212335431890200294
 SpriteRenderer:
   m_ObjectHideFlags: 1

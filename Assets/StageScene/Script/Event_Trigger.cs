@@ -6,10 +6,10 @@ using UnityEngine.EventSystems;
 public class Event_Trigger : MonoBehaviour {
     public MessageWindow mw;
     public Alice_Control alice;
-    //public GameEventController game;
+    public GameEventController game;
     void Start() {
         mw = GameObject.FindGameObjectWithTag("MessageWindow").GetComponent<MessageWindow>();
-        //game = GameObject.FindGameObjectWithTag("GameActors").GetComponent<GameEventController>();
+        game = GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEventController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -34,16 +34,14 @@ public class Event_Trigger : MonoBehaviour {
 
     IEnumerable<int> gameEvent() {
         mw.Show();
-        //alice.startEvent();
-        //game.startEvent();
+        game.startTalk();
         mw.startShowText("Do you have any questions?\nなにか質問とかある？");
         yield return 0;
         mw.startShowText("テストメッセージですけど。何か？");
         yield return 1;
         mw.Hide();
+        game.endTalk();
         Destroy(gameObject);
-        //alice.finishEvent();
-        //game.endEvent();
         yield return 2;
     }
 }

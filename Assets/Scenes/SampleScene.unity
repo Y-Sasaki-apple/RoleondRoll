@@ -392,6 +392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e49530228879045aebfd25070866aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezed:
+    value: 0
 --- !u!1001 &1368420772
 Prefab:
   m_ObjectHideFlags: 0
@@ -606,6 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mw: {fileID: 0}
   alice: {fileID: 0}
+  game: {fileID: 0}
 --- !u!1001 &1924034627
 Prefab:
   m_ObjectHideFlags: 0

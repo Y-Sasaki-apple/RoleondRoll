@@ -68,6 +68,7 @@
     <Compile Include="Assets\StageScene\Script\Camera_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Enemy1_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Event_Trigger.cs" />
+    <Compile Include="Assets\StageScene\Script\Freezable_Control.cs" />
     <Compile Include="Assets\StageScene\Script\GameEventController.cs" />
     <Compile Include="Assets\StageScene\Script\Hole.cs" />
     <Compile Include="Assets\StageScene\Script\MagicThings_Control.cs" />
