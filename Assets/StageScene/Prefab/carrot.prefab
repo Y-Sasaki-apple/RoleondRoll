@@ -116,6 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd75350759a79944a51746562e14239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezed:
+    value: 0
+  game: {fileID: 0}
 --- !u!212 &212984095503809194
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -131,7 +134,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9df8a62cef889c344a5d01846fc3d8ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

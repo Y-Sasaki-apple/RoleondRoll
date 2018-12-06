@@ -11,6 +11,11 @@ TagManager:
   - MessageWindow
   - Gimic
   - GameEvent
+  - GameArea
+  - EventController
+  - Fade
+  - Effect
+  - StageView
   layers:
   - Default
   - TransparentFX
@@ -25,7 +30,7 @@ TagManager:
   - Ground
   - Extra
   - Bullet_Player
-  - 
+  - Gate
   - 
   - 
   - 

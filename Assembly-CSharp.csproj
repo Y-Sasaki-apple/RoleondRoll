@@ -61,19 +61,42 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AllScenesAssets\Script\BGMPlayer.cs" />
+    <Compile Include="Assets\AllScenesAssets\Script\FadeSceneChanger.cs" />
+    <Compile Include="Assets\AllScenesAssets\Script\FadeTransition.cs" />
+    <Compile Include="Assets\AllScenesAssets\Script\GameData.cs" />
+    <Compile Include="Assets\AllScenesAssets\Script\IEventPerformer.cs" />
+    <Compile Include="Assets\AllScenesAssets\Script\PlayerData.cs" />
+    <Compile Include="Assets\EventScene\Script\Charactor_Controller.cs" />
+    <Compile Include="Assets\EventScene\Script\Effect_Controller.cs" />
+    <Compile Include="Assets\EventScene\Script\Event_Master.cs" />
+    <Compile Include="Assets\EventScene\Script\GameController.cs" />
+    <Compile Include="Assets\EventScene\Script\MessageWindow.cs" />
+    <Compile Include="Assets\EventScene\Script_Event\Event1_1B1.cs" />
+    <Compile Include="Assets\EventScene\Script_Event\Event1_1B2.cs" />
+    <Compile Include="Assets\ResultScene\Script\GameController.cs" />
     <Compile Include="Assets\StageScene\Script\Alice_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Alice_Move_Control.cs" />
+    <Compile Include="Assets\StageScene\Script\BackGround_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Bomb_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Bullet_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Camera_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Enemy1_Control.cs" />
     <Compile Include="Assets\StageScene\Script\Event_Trigger.cs" />
     <Compile Include="Assets\StageScene\Script\Freezable_Control.cs" />
-    <Compile Include="Assets\StageScene\Script\GameEventController.cs" />
+    <Compile Include="Assets\StageScene\Script\GameController.cs" />
+    <Compile Include="Assets\StageScene\Script\GameTimeStopGraphicController.cs" />
+    <Compile Include="Assets\StageScene\Script\Gate.cs" />
     <Compile Include="Assets\StageScene\Script\Hole.cs" />
+    <Compile Include="Assets\StageScene\Script\LifeGage.cs" />
     <Compile Include="Assets\StageScene\Script\MagicThings_Control.cs" />
     <Compile Include="Assets\StageScene\Script\MessageWindow.cs" />
     <Compile Include="Assets\StageScene\Script\Mover_Control.cs" />
+    <Compile Include="Assets\StageScene\Script_Event\Event1_1_1.cs" />
+    <Compile Include="Assets\StageSelectScene\Script\GameController.cs" />
+    <Compile Include="Assets\StageSelectScene\Script\StageView.cs" />
+    <None Include="Assets\AllScenesAssets\Materials\FadeTransitionShader.shader" />
+    <None Include="Assets\StageScene\Materials\GameObjectShader.shader" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Yuito/Documents/Program/DateAppGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

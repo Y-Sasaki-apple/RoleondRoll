@@ -1,58 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.UI;
+namespace StageScene {
+    public class MessageWindow : MonoBehaviour, IEventPerformer<string> {
+        public int charframe;
+        public GameObject windowBack;
+        private Text text;
+        private bool able_text = false;
 
-public class MessageWindow : MonoBehaviour {
-    public int charframe;
-    public GameObject windowBack;
-    private Text text;
+        private Animator animator;
 
-    private int charnum = 0;
-    private int framecount = 0;
+        void Start() {
+            windowBack = gameObject.transform.Find("WindowBack").gameObject;
+            text = gameObject.transform.Find("Text").gameObject.GetComponent<Text>();
+        }
 
-    private bool able_textshow = false;
-    private string message = "";
-    private Animator animator;
-
-    // Use this for initialization
-    void Start() {
-        windowBack = gameObject.transform.Find("WindowBack").gameObject;
-        text = gameObject.transform.Find("Text").gameObject.GetComponent<Text>();
-    }
-
-    public void Show() {
-        windowBack.GetComponent<Animator>().SetBool("Show", true);
-        StartCoroutine(textShow_process());
-    }
-
-    public void Hide() {
-        windowBack.GetComponent<Animator>().SetBool("Show", false);
-        able_textshow = false;
-        text.text = "";
-    }
-    IEnumerator textShow_process() {
-        able_textshow = false;
-        yield return new WaitForSeconds(0.5f);
-        able_textshow = true;
-    }
-    public void startShowText(string m) {
-        charnum = 0;
-        framecount = 0;
-        message = m;
-    }
-
-
-
-    private void FixedUpdate() {
-        if (able_textshow && charnum < message.Length) {
-            framecount++;
-            if (framecount % charframe == 0) {
-                framecount = 0;
-                charnum++;
-                text.text = message.Substring(0, charnum);
+        IEnumerator showMessage(Subject<Unit> f, string message) {
+            var charnum = 0;
+            var framecount = 0;
+            while (charnum < message.Length) {
+                if (able_text) {
+                    framecount++;
+                    if (framecount % charframe == 0) {
+                        framecount = 0;
+                        charnum++;
+                        text.text = message.Substring(0, charnum);
+                    }
+                    if (Input.GetButtonDown("Fire1")) {
+                        charnum = message.Length;
+                        text.text = message.Substring(0, charnum);
+                    }
+                }
+                yield return null;
             }
+            f.OnCompleted();
+        }
+
+        public IObservable<Unit> next(string variable) {
+            Subject<Unit> finish = new Subject<Unit>();
+            Observable.NextFrame().Subscribe(_ =>
+                StartCoroutine(showMessage(finish, variable))
+            ).AddTo(gameObject);
+            return finish;
+        }
+
+        public IObservable<Unit> hide() {
+            windowBack.GetComponent<Animator>().SetBool("Show", false);
+            able_text = false;
+            text.text = "";
+            return Observable.Empty<Unit>();
+        }
+
+        public IObservable<Unit>  show() {
+            windowBack.GetComponent<Animator>().SetBool("Show", true);
+            text.text = "";
+            this.UpdateAsObservable().Skip(25).First().Subscribe(_ => able_text = true);
+            return Observable.Empty<Unit>();
+
         }
     }
-
 }

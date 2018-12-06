@@ -1,47 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
-public class Event_Trigger : MonoBehaviour {
-    public MessageWindow mw;
-    public Alice_Control alice;
-    public GameEventController game;
-    void Start() {
-        mw = GameObject.FindGameObjectWithTag("MessageWindow").GetComponent<MessageWindow>();
-        game = GameObject.FindGameObjectWithTag("GameEvent").GetComponent<GameEventController>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.tag == "Alice") {
-            alice = collider.gameObject.GetComponent<Alice_Control>();
-            StartCoroutine(gameEventProcess());
-        }
-    }
-
-    private void Update() {
-
-    }
-
-    IEnumerator gameEventProcess() {
-        foreach (var e in gameEvent()) {
-            yield return e;
-            while (!Input.GetButtonDown("Fire1")) {
-                yield return null;
+namespace StageScene {
+    public abstract class Event_Trigger : MonoBehaviour {
+        protected Subject<bool> TalkEvent = new Subject<bool>();
+        public IObservable<bool> Event {
+            get {
+                return TalkEvent;
             }
         }
-    }
 
-    IEnumerable<int> gameEvent() {
-        mw.Show();
-        game.startTalk();
-        mw.startShowText("Do you have any questions?\nなにか質問とかある？");
-        yield return 0;
-        mw.startShowText("テストメッセージですけど。何か？");
-        yield return 1;
-        mw.Hide();
-        game.endTalk();
-        Destroy(gameObject);
-        yield return 2;
+        protected IObservable<Unit> waitForFire; 
+        void Start() {
+            waitForFire = this.UpdateAsObservable()
+            .Where(_ => Input.GetButtonDown("Fire1")).First();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collider) {
+            if (collider.tag == "Alice") {
+                StartCoroutine(gameEvent());
+            }
+        }
+
+        protected abstract IEnumerator gameEvent();
     }
 }
